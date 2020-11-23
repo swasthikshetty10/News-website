@@ -6,3 +6,8 @@
     width: 100%;
   }
   
+  @media print {
+    .container {
+      width: auto;
+    }
+  }
