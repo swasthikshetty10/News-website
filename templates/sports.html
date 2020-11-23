@@ -1,0 +1,33 @@
+{% extends 'home.html' %}
+
+{% block content %}
+<h1 class = "font-italic"style="text-align: center" ><b>TODAYS SPORTS NEWS</b></h1>  
+<br>
+<div class = "container">
+{% for post in final_postings %}
+<!-- titles , links , dates , descriptions , images -->
+<div class="card mb-3" style="max-width: 1540px;">
+ <div class="row no-gutters">
+   <div class="col-md-4">
+     <img src="{{ post.4 }}" class="card-img" alt="...">
+   </div>
+   <div class="col-md-8">
+     <div class="card-body">
+       
+       <h5 class="card-title">{{ post.0 }}</h5>
+       <p class="card-text">{{ post.3 }}</p>
+       <form action="{% url 'article'%}" method="post">
+         {% csrf_token %}
+         <input type="hidden" name="article_" value="{{ post.1}}" placeholder="article_">
+         <button class="button bg-warning" type="submit" name="action" color="">
+           View Full article
+         </button>
+       </form>
+       <p class="card-text"><small class="text-muted">{{ post.2 }}</small></p>
+     </div>
+   </div>
+  </div>
+</div>
+{% endfor %}
+</div>
+{% endblock content %}

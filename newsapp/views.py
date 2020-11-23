@@ -36,3 +36,70 @@ def article(request):
         'final_postings': final_posting
     }
     return render(request, 'news.html' ,stuff_for_frontend)
+
+
+def sports(request):
+    titles_S , links_S , dates_S , descriptions_S , images_S = news.news_articles('https://indianexpress.com/section/sports/')
+    final_posting = []
+    for i in range(len(titles_S)):
+        final_posting.append((titles_S[i] , links_S[i] , dates_S[i] , descriptions_S[i] , images_S[i]))
+
+    
+    
+
+
+    stuff_for_frontend = {
+        'final_postings': final_posting
+    }
+
+    return render(request , 'sports.html' ,stuff_for_frontend )
+
+
+def entertainment(request):
+    #titles , links , dates , descriptions , images = news.news_articles(valid_urls[3])
+    final_posting = []
+    #for i in range(len(titles)):
+    #    final_posting.append((titles[i] , links[i] , dates[i] , descriptions[i] , images[i]))
+#
+    
+    
+
+
+    stuff_for_frontend = {
+        'final_postings': final_posting
+    }
+
+    return render(request , 'entertainment.html' ,stuff_for_frontend )
+
+def lifestyle(request):
+    titles , links , dates , descriptions , images = news.news_articles(valid_urls[4])
+    final_posting = []
+    for i in range(len(titles)):
+        final_posting.append((titles[i] , links[i] , dates[i] , descriptions[i] , images[i]))
+
+    
+    
+
+
+    stuff_for_frontend = {
+        'final_postings': final_posting
+    }
+
+    return render(request , 'lifestyle.html' ,stuff_for_frontend )
+
+
+def cities(request):
+    titles , links , dates , descriptions , images = news.news_articles(valid_urls[2])
+    final_posting = []
+    for i in range(len(titles)):
+        final_posting.append((titles[i] , links[i] , dates[i] , descriptions[i] , images[i]))
+
+    
+    
+
+
+    stuff_for_frontend = {
+        'final_postings': final_posting
+    }
+
+    return render(request , 'cities.html' ,stuff_for_frontend )

@@ -10,7 +10,7 @@ valid_urls = ['https://indianexpress.com/section/india/',
               ]
 
 def news_articles(url):
-    url = valid_urls[0]
+    
     page = requests.get(url)
     soup = bs(page.content,'html.parser')
     #print(soup)
@@ -24,12 +24,27 @@ def news_articles(url):
     all_urls = []
     all_images = []
 
-    for article in articles:
-        all_titles.append(article.find(class_ ="title").get_text())
-        all_images.append(article.find(class_ ="snaps").a.img['data-lazy-src'])
-        all_urls.append(article.find(class_ ="title").a['href'])
-        all_dates.append(article.find(class_ ="date").get_text())
-        all_descriptions.append(article.find('p').get_text())
+    if url == 'https://indianexpress.com/section/entertainment/':
+        for article in articles:
+
+            all_titles.append(article.find("div", {"class" :"title"}).a.get_text())
+            all_images.append(article.find(class_ ="snaps").a.img['data-lazy-src'])
+            all_urls.append(article.find(class_ ="title").a['href'])
+            all_dates.append(article.find(class_ ="date").get_text())
+            all_descriptions.append(article.find('p').get_text())
+
+
+
+    else :  
+
+
+        for article in articles:
+
+            all_titles.append(article.find(class_ ="title").get_text())
+            all_images.append(article.find(class_ ="snaps").a.img['data-lazy-src'])
+            all_urls.append(article.find(class_ ="title").a['href'])
+            all_dates.append(article.find(class_ ="date").get_text())
+            all_descriptions.append(article.find('p').get_text())
     return all_titles,all_urls, all_dates , all_descriptions , all_images
 
 
@@ -46,3 +61,4 @@ def full_news(url):
     for p in body:
         paragraphs.append(p.get_text())
     return title ,description, paragraphs , image
+

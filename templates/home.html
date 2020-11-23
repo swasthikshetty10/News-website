@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>apnanews</title>
+    <title>BCLNEWS</title>
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -57,11 +57,11 @@
     <!--jumbotron  <hr class="my-4">-->
 
   <div class="container-fluid" style="text-align: center">
-    <a type="button" href = "#"class="btn btn-secondary">Secondary</a>
-    <a type="button" class="btn btn-success">Success</a>
-    <a type="button" class="btn btn-danger">Danger</a>
-    <a type="button" class="btn btn-warning">Warning</a>
-    <a type="button" class="btn btn-info">Info</a>
+    <a type="button" href = "/"class="btn btn-secondary">Home</a>
+    <a type="button" href = "/sports" class="btn btn-success">Sports</a>
+    <a type="button" href = "/entertainment" class="btn btn-danger">Entertainment</a>
+    <a type="button" href = "/lifestyle" class="btn btn-warning">Lifestyle</a>
+    <a type="button" href = "/cities" class="btn btn-info">Cities</a>
     
   </div>
  <br>
@@ -86,7 +86,7 @@
             {% csrf_token %}
             <input type="hidden" name="article_" value="{{ post.1}}" placeholder="article_">
             <button class="button bg-warning" type="submit" name="action" color="">
-              View Full articele
+              View Full article
             </button>
           </form>
           <p class="card-text"><small class="text-muted">{{ post.2 }}</small></p>
