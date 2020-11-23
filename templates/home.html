@@ -72,7 +72,7 @@
  {% block content %}
    <h1 class = "font-italic"style="text-align: center" ><b>TODAYS TOP NEWS</b></h1>  
    <br>
-   
+   <div class = "container-fluid">
    {% for post in final_postings %}
    <!-- titles , links , dates , descriptions , images -->
    <div class="card mb-3" style="max-width: 1540px;">
@@ -96,7 +96,7 @@
         </div>
       </div>
      </div>
-   
+   </div>
    {% endfor %}
   </div>
  {% endblock content %}
