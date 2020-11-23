@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>BCLNEWS</title>
-    
     <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -73,7 +72,7 @@
  {% block content %}
    <h1 class = "font-italic"style="text-align: center" ><b>TODAYS TOP NEWS</b></h1>  
    <br>
-   <div class = "container">
+   
    {% for post in final_postings %}
    <!-- titles , links , dates , descriptions , images -->
    <div class="card mb-3" style="max-width: 1540px;">
@@ -97,7 +96,7 @@
         </div>
       </div>
      </div>
-   </div>
+   
    {% endfor %}
   </div>
  {% endblock content %}
