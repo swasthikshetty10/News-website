@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>apnanews</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+<!-- Nav  bar   -->
+<nav class="navbar navbar-expand-lg navbar-light " style="background-color: #72bce7;">
+    <a class="navbar-brand" href="#"> <img src="https://cdn.discordapp.com/attachments/773803149890027520/780368442246692914/coollogo_com-235521124-removebg-preview_1.png" width="200" height="40" alt=""></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            More
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- LOGO   -->
+  <a href = "#">
+  <img src="https://cdn.discordapp.com/attachments/773803149890027520/780379929116278814/coollogo_com-182742490.png" class="img-fluid" alt="Responsive image">
+  </a>
+  
+ 
+  <!-- about page-->
+
+  <!-- news -->
+  
+
+
+    <!--jumbotron  <hr class="my-4">-->
+
+  <div class="container-fluid" style="text-align: center">
+    <a type="button" href = "#"class="btn btn-secondary">Secondary</a>
+    <a type="button" class="btn btn-success">Success</a>
+    <a type="button" class="btn btn-danger">Danger</a>
+    <a type="button" class="btn btn-warning">Warning</a>
+    <a type="button" class="btn btn-info">Info</a>
+    
+  </div>
+ <br>
+ 
+ {% block content %}
+   <h1 class = "font-italic"style="text-align: center" ><b>TODAYS TOP NEWS</b></h1>  
+   <br>
+   <div class = "container">
+   {% for post in final_postings %}
+   <!-- titles , links , dates , descriptions , images -->
+   <div class="card mb-3" style="max-width: 1540px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="{{ post.4 }}" class="card-img" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          
+          <h5 class="card-title">{{ post.0 }}</h5>
+          <p class="card-text">{{ post.3 }}</p>
+          <form action="{% url 'article'%}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="article_" value="{{ post.1}}" placeholder="article_">
+            <button class="button bg-warning" type="submit" name="action" color="">
+              View Full articele
+            </button>
+          </form>
+          <p class="card-text"><small class="text-muted">{{ post.2 }}</small></p>
+        </div>
+      </div>
+     </div>
+   </div>
+   {% endfor %}
+  </div>
+ {% endblock content %}
+
+</body>
+</html>
