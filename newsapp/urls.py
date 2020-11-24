@@ -8,6 +8,5 @@ urlpatterns = [
     path('entertainment', views.entertainment, name='entertainment'),
     path('sports', views.sports, name='sports'),
     path('lifestyle', views.lifestyle, name='lifestyle'),
-
-
+    path('<str:val>/page/<int:num>', views.pages),
 ]

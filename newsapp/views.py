@@ -103,3 +103,66 @@ def cities(request):
     }
 
     return render(request , 'cities.html' ,stuff_for_frontend )
+
+
+def pages(request , val = 'home'  , num = 1 ):
+    if val == 'home':
+        
+        titles , links , dates , descriptions , images = news.news_articles(f'https://indianexpress.com/section/india/page/{val}/')
+        final_posting = []
+        for i in range(len(titles)):
+            final_posting.append((titles[i] , links[i] , dates[i] , descriptions[i] , images[i]))
+        stuff_for_frontend = {
+            'final_postings': final_posting,
+            'page_no' : num
+        }
+
+        return render(request , 'home.html' ,stuff_for_frontend )
+    elif val == 'sports':
+        
+        titles , links , dates , descriptions , images = news.news_articles(f'https://indianexpress.com/section/{val}/page/{num}/')
+        final_posting = []
+        for i in range(len(titles)):
+            final_posting.append((titles[i] , links[i] , dates[i] , descriptions[i] , images[i]))
+       
+
+
+        stuff_for_frontend = {
+            'final_postings': final_posting,
+            'page_no' : num
+        }
+
+        return render(request , 'home.html' ,stuff_for_frontend )
+    
+    elif val == 'lifestyle':
+        
+        titles , links , dates , descriptions , images = news.news_articles(f'https://indianexpress.com/section/{val}/page/{num}/')
+        final_posting = []
+        for i in range(len(titles)):
+            final_posting.append((titles[i] , links[i] , dates[i] , descriptions[i] , images[i]))
+       
+
+
+        stuff_for_frontend = {
+            'final_postings': final_posting,
+            'page_no' : num
+        }
+
+        return render(request , 'home.html' ,stuff_for_frontend )
+    
+    elif val == 'cities':
+        
+        titles , links , dates , descriptions , images = news.news_articles(f'https://indianexpress.com/section/{val}/page/{num}/')
+        final_posting = []
+        for i in range(len(titles)):
+            final_posting.append((titles[i] , links[i] , dates[i] , descriptions[i] , images[i]))
+       
+
+
+        stuff_for_frontend = {
+            'final_postings': final_posting,
+            'page_no' : num
+        }
+
+        return render(request , 'home.html' ,stuff_for_frontend )
+    
