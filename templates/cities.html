@@ -30,4 +30,19 @@
 </div>
 {% endfor %}
 </div>
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    {% if num == 1 %}
+    <li class="page-item"><a class="page-link" href="/cities/page/1">Previous</a></li>
+    {% endif %}
+    {% if num > 1 %}
+    <li class="page-item"><a class="page-link" href="/cities/page/{{ num |add:'-1' }}">Previous</a></li>
+    {% endif %}
+    <li class="page-item"><a class="page-link" href="/cities/page/{{num}}">{{num}}</a></li>
+    <li class="page-item"><a class="page-link" href="/cities/page/{{ num |add:'1' }}">{{ num |add:"1"}}</a></li>
+    <li class="page-item"><a class="page-link" href="/cities/page/{{ num |add:'2' }}">{{ num |add:"2"}}</a></li>
+    <li class="page-item"><a class="page-link" href="/cities/page/{{ num |add:'3' }}">Next</a></li>
+  </ul>
+</nav>
+</nav>
 {% endblock content %}

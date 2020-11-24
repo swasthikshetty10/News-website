@@ -73,7 +73,8 @@
  {% block content %}
 
 
-   <h1 class = "font-italic"style="text-align: center" ><b>TODAYS TOP NEWS</b></h1>  
+   <h1 class = "font-italic"style="text-align: center" ><b>INDIAS TOP NEWS</b></h1>  
+   
    <br>
    <div class = "container-fluid">
    {% for post in final_postings %}
@@ -102,6 +103,23 @@
    </div>
    {% endfor %}
   </div>
+
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      {% if num == 1 %}
+      <li class="page-item"><a class="page-link" href="/home">Previous</a></li>
+      {% endif %}
+      {% if num > 1 %}
+      <li class="page-item"><a class="page-link" href="/home/page/{{ num |add:'-1' }}">Previous</a></li>
+      {% endif %}
+      <li class="page-item"><a class="page-link" href="/home/page/{{num}}">{{num}}</a></li>
+      <li class="page-item"><a class="page-link" href="/home/page/{{ num |add:'1' }}">{{ num |add:"1"}}</a></li>
+      <li class="page-item"><a class="page-link" href="/home/page/{{ num |add:'2' }}">{{ num |add:"2"}}</a></li>
+      <li class="page-item"><a class="page-link" href="/home/page/{{ num |add:'3' }}">Next</a></li>
+    </ul>
+  </nav>
+
+
  {% endblock content %}
  <div class="jumbotron">
   

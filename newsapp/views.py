@@ -15,11 +15,12 @@ def home(request):
         final_posting.append((titles[i] , links[i] , dates[i] , descriptions[i] , images[i]))
 
     
-    
+    num = 1
 
 
     stuff_for_frontend = {
-        'final_postings': final_posting
+        'final_postings': final_posting,
+        'num' : num
     }
 
     return render(request , 'home.html' ,stuff_for_frontend )
@@ -32,8 +33,10 @@ def article(request):
     print(link)
     final_posting = []
     final_posting.append([p,q,r,s])
+    num = 1
     stuff_for_frontend = {
-        'final_postings': final_posting
+        'final_postings': final_posting,
+        'num' : num
     }
     return render(request, 'news.html' ,stuff_for_frontend)
 
@@ -46,10 +49,11 @@ def sports(request):
 
     
     
-
+    num = 1
 
     stuff_for_frontend = {
-        'final_postings': final_posting
+        'final_postings': final_posting,
+        'num' : num
     }
 
     return render(request , 'sports.html' ,stuff_for_frontend )
@@ -79,10 +83,11 @@ def lifestyle(request):
 
     
     
-
+    num = 1
 
     stuff_for_frontend = {
-        'final_postings': final_posting
+        'final_postings': final_posting,
+        'num' : num
     }
 
     return render(request , 'lifestyle.html' ,stuff_for_frontend )
@@ -96,25 +101,26 @@ def cities(request):
 
     
     
-
+    num = 1
 
     stuff_for_frontend = {
-        'final_postings': final_posting
+        'final_postings': final_posting,
+        'num' : num
     }
 
     return render(request , 'cities.html' ,stuff_for_frontend )
 
 
-def pages(request , val = 'home'  , num = 1 ):
+def pages(request , val   , num ):
     if val == 'home':
         
-        titles , links , dates , descriptions , images = news.news_articles(f'https://indianexpress.com/section/india/page/{val}/')
+        titles , links , dates , descriptions , images = news.news_articles(f'https://indianexpress.com/section/india/page/{num}/')
         final_posting = []
         for i in range(len(titles)):
             final_posting.append((titles[i] , links[i] , dates[i] , descriptions[i] , images[i]))
         stuff_for_frontend = {
             'final_postings': final_posting,
-            'page_no' : num
+            'num' : num
         }
 
         return render(request , 'home.html' ,stuff_for_frontend )
@@ -129,10 +135,10 @@ def pages(request , val = 'home'  , num = 1 ):
 
         stuff_for_frontend = {
             'final_postings': final_posting,
-            'page_no' : num
+            'num' : num
         }
 
-        return render(request , 'home.html' ,stuff_for_frontend )
+        return render(request , 'sports.html' ,stuff_for_frontend )
     
     elif val == 'lifestyle':
         
@@ -145,10 +151,10 @@ def pages(request , val = 'home'  , num = 1 ):
 
         stuff_for_frontend = {
             'final_postings': final_posting,
-            'page_no' : num
+            'num' : num
         }
 
-        return render(request , 'home.html' ,stuff_for_frontend )
+        return render(request , 'lifestyle.html' ,stuff_for_frontend )
     
     elif val == 'cities':
         
@@ -161,8 +167,8 @@ def pages(request , val = 'home'  , num = 1 ):
 
         stuff_for_frontend = {
             'final_postings': final_posting,
-            'page_no' : num
+            'num' : num
         }
 
-        return render(request , 'home.html' ,stuff_for_frontend )
+        return render(request , 'cities.html' ,stuff_for_frontend )
     
