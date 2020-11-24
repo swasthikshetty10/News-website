@@ -71,13 +71,15 @@
  <br>
  
  {% block content %}
-
+   
 
    <h1 class = "font-italic"style="text-align: center" ><b>INDIAS TOP NEWS</b></h1>  
-   
-   <br>
-   <div class = "container-fluid">
+    {% if num > 1 %}
+      <p class = "font-italic"style="text-align: center" ><button type="button" class="btn btn-outline-dark btn-sm ">Page {{num}}</button></p>  
+    {% endif %}
+  <div class = "container-fluid">
    {% for post in final_postings %}
+   <br>
    <!-- titles , links , dates , descriptions , images -->
    <div class="card mb-3" style="max-width: 1540px;">
     <div class="row col-md-*">
@@ -105,17 +107,17 @@
   </div>
 
   <nav aria-label="Page navigation example">
-    <ul class="pagination">
+    <ul class="pagination ">
       {% if num == 1 %}
-      <li class="page-item"><a class="page-link" href="/home">Previous</a></li>
+      <li class="page-item"><a class="page-link bg-dark text-white" href="/home">Previous</a></li>
       {% endif %}
       {% if num > 1 %}
-      <li class="page-item"><a class="page-link" href="/home/page/{{ num |add:'-1' }}">Previous</a></li>
+      <li class="page-item"><a class="page-link bg-dark text-white " href="/home/page/{{ num |add:'-1' }}">Previous</a></li>
       {% endif %}
-      <li class="page-item"><a class="page-link" href="/home/page/{{num}}">{{num}}</a></li>
-      <li class="page-item"><a class="page-link" href="/home/page/{{ num |add:'1' }}">{{ num |add:"1"}}</a></li>
-      <li class="page-item"><a class="page-link" href="/home/page/{{ num |add:'2' }}">{{ num |add:"2"}}</a></li>
-      <li class="page-item"><a class="page-link" href="/home/page/{{ num |add:'3' }}">Next</a></li>
+      <li class="page-item"><a class="page-link bg-success text-white" href="/home/page/{{ num |add:'1' }}">{{ num |add:"1"}}</a></li>
+      <li class="page-item"><a class="page-link bg-success text-white" href="/home/page/{{ num |add:'2' }}">{{ num |add:"2"}}</a></li>
+      <li class="page-item"><a class="page-link bg-success text-white" href="/home/page/{{num | add:'3'}}">{{num |add:"3"}}</a></li>
+      <li class="page-item"><a class="page-link bg-dark text-white" href="/home/page/{{ num |add:'1' }}">Next</a></li>
     </ul>
   </nav>
 
