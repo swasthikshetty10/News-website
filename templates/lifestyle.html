@@ -17,7 +17,11 @@
    <div class="col-md-8">
      <div class="card-body">
        
-       <h5 class="card-title">{{ post.0 }}</h5>
+      <form action="{%url 'article'%}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="article_" value="{{post.1}}" placeholder="article_">
+        <a href="#" onclick="this.parentNode.submit()"> <h5 class="card-title" >{{ post.0 }}</h5> </a>
+      </form>
        <p class="card-text">{{ post.3 }}</p>
        <form action="{% url 'article'%}" method="post">
          {% csrf_token %}

@@ -6,7 +6,6 @@ valid_urls = ['https://indianexpress.com/section/india/',
               'https://indianexpress.com/section/cities/',
               'https://indianexpress.com/section/entertainment/',
               'https://indianexpress.com/section/lifestyle/',
-
               ]
 def home(request):
     titles , links , dates , descriptions , images = news.news_articles(valid_urls[0])
@@ -81,7 +80,6 @@ def lifestyle(request):
     for i in range(len(titles)):
         final_posting.append((titles[i] , links[i] , dates[i] , descriptions[i] , images[i]))
 
-    
     
     num = 1
 
@@ -171,4 +169,3 @@ def pages(request , val   , num ):
         }
 
         return render(request , 'cities.html' ,stuff_for_frontend )
-    

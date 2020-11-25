@@ -1,4 +1,5 @@
 {% load static %}
+{% load urlify %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,10 +71,9 @@
     
   </div>
  <br>
+
  
  {% block content %}
-   
-
    <h1 class = "font-italic"style="text-align: center" ><b>INDIAS TOP NEWS</b></h1>  
     {% if num > 1 %}
       <p class = "font-italic"style="text-align: center" ><button type="button" class="btn btn-outline-dark btn-sm ">Page {{num}}</button></p>  
@@ -82,6 +82,7 @@
    {% for post in final_postings %}
    <br>
    <!-- titles , links , dates , descriptions , images -->
+  
    <div class="card mb-3" style="max-width: 1540px;">
     <div class="row col-md-*">
       <div class="col-md-4">
@@ -90,15 +91,13 @@
       <div class="col-md-8">
         <div class="card-body">
           
-          <h5 class="card-title">{{ post.0 }}</h5>
-          <p class="card-text">{{ post.3 }}</p>
-          <form action="{% url 'article'%}" method="post">
+          <form action="{%url 'article'%}" method="post">
             {% csrf_token %}
-            <input type="hidden" name="article_" value="{{ post.1}}" placeholder="article_">
-            <button class="button bg-warning" type="submit" name="action" color="">
-              View Full article
-            </button>
+            <input type="hidden" name="article_" value="{{post.1}}" placeholder="article_">
+            <a href="#" onclick="this.parentNode.submit()"> <h5 class="card-title" >{{ post.0 }}</h5> </a>
           </form>
+          <p class="card-text">{{ post.3 }}</p>
+          
           <p class="card-text"><small class="text-muted">{{ post.2 }}</small></p>
         </div>
       </div>
@@ -122,11 +121,11 @@
     </ul>
   </nav>
 
-
+  
  {% endblock content %}
  <div class="jumbotron">
-  
   <h3 class="lead font-weight-bold" style="text-align: center">Made by !ΞPAX㋡ aka Swasthik Shetty</h3>
+  <p  class="lead font-weight-bold "style ="text-align: center">contributions :<a class = "" href = "https://github.com/Ivche1337"> Ivche1337 </a> </p>
   <hr class="my-4">
   <p class="font-weight-normal" style = "text-align: center"><a class="btn btn-block btn-social btn-twitter">   
 <a class = " btn btn-outline-info" href = "https://www.linkedin.com/in/swasthik-shetty-15632b1b8">LinkedIn  </a> 
