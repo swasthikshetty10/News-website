@@ -93,7 +93,7 @@
           <form action="{%url 'article'%}" method="post">
             {% csrf_token %}
             <input type="hidden" name="article_" value="{{post.1}}" placeholder="article_">
-            <a href="#" onclick="this.parentNode.submit()"> <h5 class="card-title" >{{ post.0 }}</h5> </a>
+            <a href="" onclick="this.parentNode.submit()"> <h5 class="card-title" >{{ post.0 }}</h5> </a>
           </form>
           <p class="card-text">{{ post.3 }}</p>
           
