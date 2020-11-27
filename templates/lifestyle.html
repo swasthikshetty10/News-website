@@ -20,7 +20,7 @@
       <form action="{%url 'article'%}" method="post">
         {% csrf_token %}
         <input type="hidden" name="article_" value="{{post.1}}" placeholder="article_">
-        <a href="" onclick="this.parentNode.submit()"> <h5 class="card-title" >{{ post.0 }}</h5> </a>
+        <a href="#" onclick="this.parentNode.submit()"> <h5 class="card-title" >{{ post.0 }}</h5> </a>
       </form>
        <p class="card-text">{{ post.3 }}</p>
        <p class="card-text"><small class="text-muted">{{ post.2 }}</small></p>
@@ -33,16 +33,17 @@
 </div>
 <nav aria-label="Page navigation example">
   <ul class="pagination">
-    {% if num >= 1 %}
-    <li class="page-item"><a class="page-link bg-dark text-white" href="/lifestyle/page/1">Previous</a></li>
+    {% if num == 1 %}
+    <li class="page-item"><a class="page-link bg-success text-white" href="/lifestyle/page/1">Previous</a></li>
     {% endif %}
-    {% if num > 1 %}s
+    {% if num > 1 %}
     <li class="page-item"><a class="page-link bg-dark text-white" href="/lifestyle/page/{{ num |add:'-1' }}">Previous</a></li>
     {% endif %}
+    
     <li class="page-item"><a class="page-link bg-success text-white" href="/lifestyle/page/{{ num |add:'1' }}">{{ num |add:"1"}}</a></li>
     <li class="page-item"><a class="page-link bg-success text-white" href="/lifestyle/page/{{ num |add:'2' }}">{{ num |add:"2"}}</a></li>
     <li class="page-item"><a class="page-link bg-success text-white" href="/lifestyle/page/{{num | add:'3'}}">{{num |add:"3"}}</a></li>
-    <li class="page-item"><a class="page-link bg-darks text-white" href="/lifestyle/page/{{ num |add:'1' }}">Next</a></li>
+    <li class="page-item"><a class="page-link bg-dark text-white" href="/lifestyle/page/{{ num |add:'1' }}">Next</a></li>
   </ul>
 </nav>
 {% endblock content %}

@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from . import theindianexpress as news
+from . import e_sports
 # Create your views here.
 valid_urls = ['https://indianexpress.com/section/india/',
               'https://indianexpress.com/section/sports/',
@@ -40,6 +41,20 @@ def article(request):
     return render(request, 'news.html' ,stuff_for_frontend)
 
 
+def earticle(request):
+    link = request.POST.get('article_')
+    title , date , image , body = e_sports.full_news(link)
+    print(link)
+    final_posting = []
+    final_posting.append([title , date , image , body])
+    num = 1
+    stuff_for_frontend = {
+        'final_postings': final_posting,
+        'num' : num
+    }
+    return render(request, 'esportsnews.html' ,stuff_for_frontend)
+
+
 def sports(request):
     titles_S , links_S , dates_S , descriptions_S , images_S = news.news_articles('https://indianexpress.com/section/sports/')
     final_posting = []
@@ -56,6 +71,25 @@ def sports(request):
     }
 
     return render(request , 'sports.html' ,stuff_for_frontend )
+
+
+def esports(request):
+    titles, links ,dates, descriptions ,images  = e_sports.allarticles('https://esportsobserver.com/tag/india/')
+    final_posting = []
+    for i in range(len(titles)):
+        final_posting.append((titles[i] , links[i] , dates[i] , descriptions[i] , images[i]))
+
+    
+    
+    num = 1
+
+    stuff_for_frontend = {
+        'final_postings': final_posting,
+        'num' : num
+    }
+
+    return render(request , 'esports.html' ,stuff_for_frontend )
+
 
 
 def entertainment(request):
