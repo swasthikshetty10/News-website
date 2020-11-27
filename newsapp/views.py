@@ -190,3 +190,18 @@ def pages(request , val   , num ):
         }
 
         return render(request , 'cities.html' ,stuff_for_frontend )
+    elif val == 'esports':
+        
+        titles , links , dates , descriptions , images = e_sports.allarticles(f'https://esportsobserver.com/tag/india/page/{num}/')
+        final_posting = []
+        for i in range(len(titles)):
+            final_posting.append((titles[i] , links[i] , dates[i] , descriptions[i] , images[i]))
+       
+
+
+        stuff_for_frontend = {
+            'final_postings': final_posting,
+            'num' : num
+        }
+
+        return render(request , 'esports.html' ,stuff_for_frontend )

@@ -33,15 +33,15 @@
 <nav aria-label="Page navigation example">
   <ul class="pagination">
     {% if num == 1 %}
-    <li class="page-item"><a class="page-link bg-success text-white" href="/cities/page/1">Previous</a></li>
+    <li class="page-item"><a class="page-link bg-success text-white" href="/esports/page/1">Previous</a></li>
     {% endif %}
     {% if num > 1 %}
-    <li class="page-item"><a class="page-link bg-dark text-white" href="/cities/page/{{ num |add:'-1' }}">Previous</a></li>
+    <li class="page-item"><a class="page-link bg-dark text-white" href="/esports/page/{{ num |add:'-1' }}">Previous</a></li>
     {% endif %}
-    <li class="page-item"><a class="page-link bg-success text-white" href="/cities/page/{{ num |add:'1' }}">{{ num |add:"1"}}</a></li>
-    <li class="page-item"><a class="page-link bg-success text-white" href="/cities/page/{{ num |add:'2' }}">{{ num |add:"2"}}</a></li>
-    <li class="page-item"><a class="page-link bg-success text-white" href="/cities/page/{{num | add:'3'}}">{{num |add:"3"}}</a></li>
-    <li class="page-item"><a class="page-link bg-dark text-white" href="/cities/page/{{ num |add:'1' }}">Next</a></li>
+    <li class="page-item"><a class="page-link bg-success text-white" href="/esports/page/{{ num |add:'1' }}">{{ num |add:"1"}}</a></li>
+    <li class="page-item"><a class="page-link bg-success text-white" href="/esports/page/{{ num |add:'2' }}">{{ num |add:"2"}}</a></li>
+    <li class="page-item"><a class="page-link bg-success text-white" href="/esports/page/{{num | add:'3'}}">{{num |add:"3"}}</a></li>
+    <li class="page-item"><a class="page-link bg-dark text-white" href="/esports/page/{{ num |add:'1' }}">Next</a></li>
   </ul>
 </nav>
 {% endblock content %}
