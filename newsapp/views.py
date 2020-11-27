@@ -56,7 +56,7 @@ def earticle(request):
 
 
 def sports(request):
-    titles_S , links_S , dates_S , descriptions_S , images_S = news.news_articles('https://indianexpress.com/section/india/page/0/')
+    titles_S , links_S , dates_S , descriptions_S , images_S = news.news_articles('https://indianexpress.com/section/sports/page/0/')
     final_posting = []
     for i in range(len(titles_S)):
         final_posting.append((titles_S[i] , links_S[i] , dates_S[i] , descriptions_S[i] , images_S[i]))
