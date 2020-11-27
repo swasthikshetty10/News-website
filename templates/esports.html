@@ -24,6 +24,13 @@
       </form>
        <p class="card-text">{{ post.3 }}</p>
        <p class="card-text"><small class="text-muted">{{ post.2 }}</small></p>
+       <form action="{% url 'earticle'%}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="article_" value="{{ post.1}}" placeholder="article_">
+        <button class="btn btn-info btn-sm" type="submit" name="action">
+          view full article
+        </button>
+      </form>
      </div>
    </div>
   </div>
