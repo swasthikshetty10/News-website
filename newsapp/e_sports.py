@@ -31,6 +31,8 @@ def full_news(articleurl):
     date  = article.find(class_ ="jeg_meta_date").get_text()
     image = article.find(class_ ="thumbnail-container").img['data-src']
     body = article.find(class_ = "content-inner").find_all('p')
+    bodies = []
+    for b in body:
+        bodies.append(b.get_text())
     
-    return title , date , image , body
-
+    return title , date , image , bodies
