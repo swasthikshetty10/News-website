@@ -13,12 +13,14 @@ def article(url):
     all_urls = []
     all_dates = []
     articles = soup.find_all(class_="clear home-post-box cf")
+    urls = soup.find_all(class_ = 'body-post clear')
+    for url in urls:
+        all_urls.append(url.a['href'])
     #print(articles)
     for article in articles:
 
         all_titles.append(article.find(class_ = 'home-title').get_text())
         all_images.append(article.find(class_ ="home-img clear").find(class_ = 'img-ratio').img['data-src'])
-        #all_urls.append(article.find(class_ ="body-post clear").a['href'])
         all_dates.append(article.find(class_ ="item-label").get_text())
         all_descriptions.append(article.find(class_ = 'home-desc').get_text())
 
@@ -26,5 +28,6 @@ def article(url):
     #print(all_images)
     #print(all_dates)
     #print(all_descriptions)
-    return all_titles, all_dates , all_descriptions , all_images
+    return all_titles, all_dates , all_descriptions , all_images , all_urls
+
 #print(article(url))

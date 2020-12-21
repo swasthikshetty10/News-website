@@ -131,10 +131,10 @@ def cities(request):
     return render(request , 'cities.html' ,stuff_for_frontend )
 
 def hackernews(request):
-    a,b,c,d = hn.article('https://thehackernews.com/')
+    a,b,c,d,e = hn.article('https://thehackernews.com/')
     finalposting = []
     for i in range(len(a)):
-        finalposting.append([a[i], b[i], c[i],d[i]])
+        finalposting.append([a[i], b[i], c[i][0:250],d[i], e[i]])
     stuff_for_frontend = {
         'final_postings' : finalposting,
     
