@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from . import theindianexpress as news
 from . import e_sports
+from . import hackernews  as hn
 # Create your views here.
 valid_urls = ['https://indianexpress.com/section/india/',
               'https://indianexpress.com/section/sports/',
@@ -128,6 +129,19 @@ def cities(request):
     }
 
     return render(request , 'cities.html' ,stuff_for_frontend )
+
+def hackernews(request):
+    a,b,c,d = hn.article('https://thehackernews.com/')
+    finalposting = []
+    for i in range(len(a)):
+        finalposting.append([a[i], b[i], c[i],d[i]])
+    stuff_for_frontend = {
+        'final_postings' : finalposting,
+    
+    }
+    print(stuff_for_frontend)
+    return render(request , 'hackernews.html' , stuff_for_frontend)
+
 
 
 def pages(request , val   , num ):

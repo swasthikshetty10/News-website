@@ -11,4 +11,5 @@ urlpatterns = [
     path('sports', views.sports, name='sports'),
     path('lifestyle', views.lifestyle, name='lifestyle'),
     path('<str:val>/page/<int:num>', views.pages),
+    path('hackernews', views.hackernews ),
 ]
