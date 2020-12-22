@@ -20,6 +20,13 @@
         <p class="card-text">{{post.2}}...</p>
         <p class="card-text"><small class="text-muted">{{post.1}}</small></p>
      </div>
+     <form action="{% url 'hackerarticle'%}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="hackerarticle_" value="{{ post.4}}" placeholder="hackerarticle_">
+        <button class="btn btn-info btn-sm" type="submit" name="action">
+          view full article
+        </button>
+      </form>
    </div>
   </div>
 </div>

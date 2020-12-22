@@ -27,6 +27,19 @@ def home(request):
     return render(request , 'home.html' ,stuff_for_frontend )
 
 
+def hackerarticle(request):
+    link = request.POST.get('hackerarticle_')
+    p,q,r = hn.full_article(link)
+    print(link)
+    final_posting = []
+    final_posting.append([p,q,r])
+    
+    stuff_for_frontend = {
+        'final_postings': final_posting,
+        
+    }
+    return render(request, 'news.html' ,stuff_for_frontend)
+
 
 def article(request):
     link = request.POST.get('article_')

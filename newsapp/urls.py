@@ -4,6 +4,7 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('home', views.home, name='home'),
     path('article', views.article, name='article'),
+    path('hackerarticle', views.hackerarticle, name='hackerarticle'),
     path('earticle', views.earticle, name='earticle'),
     path('esports', views.esports, name='esoprts'),
     path('cities', views.cities, name='cities'),
@@ -12,4 +13,5 @@ urlpatterns = [
     path('lifestyle', views.lifestyle, name='lifestyle'),
     path('<str:val>/page/<int:num>', views.pages),
     path('hackernews', views.hackernews ),
+
 ]

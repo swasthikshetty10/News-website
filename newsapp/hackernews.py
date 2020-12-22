@@ -31,3 +31,18 @@ def article(url):
     return all_titles, all_dates , all_descriptions , all_images , all_urls
 
 #print(article(url))
+def full_article(url):
+    #url = 'https://thehackernews.com/2020/12/a-second-hacker-group-may-have-also.html'
+    page = requests.get(url)
+    soup = bs(page.content,'html.parser')
+    #print(soup)
+    title = soup.find(class_ ="story-title").get_text()
+    #print(title)
+    image = soup.find(class_ = "separator").img['src']
+    para = soup.find(class_ = "articlebody clear cf").find_all('p')
+    paragraphs  = []
+    for p in para:
+        paragraphs.append(p.get_text())
+    return title , image, paragraphs
+
+
