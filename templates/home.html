@@ -110,8 +110,8 @@
    </div>
    {% endfor %}
   </div>
-
-  <nav aria-label="Page navigation example ">
+<div class = "container"> 
+  <nav aria-label="Page navigation example " style = "margin : 0 auto;">
     <ul class="pagination " >
       {% if num == 1 %}
       <li class="page-item"><a class="page-link bg-dark text-white" href="/home">Previous</a></li>
@@ -125,7 +125,7 @@
       <li class="page-item"><a class="page-link bg-dark text-white" href="/home/page/{{ num |add:'1' }}">Next</a></li>
     </ul>
   </nav>
-
+  </div>
   
  {% endblock content %}
  <div class="jumbotron">
