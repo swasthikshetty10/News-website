@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup as bs
 
-
+# scraping 
 header = {'useragent' : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36"}
 url= 'https://esportsobserver.com/tag/india/'
 def allarticles(url):
